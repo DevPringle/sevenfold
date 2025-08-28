@@ -128,11 +128,9 @@
             height: 100%;
             object-fit: contain;
             border-radius: 12px;
-            /* Add a subtle glow effect to the image */
             filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.3));
         }
 
-        /* Remove the old ::before pseudo-element that created the "7" */
         .logo-icon::before {
             display: none;
         }
@@ -247,7 +245,7 @@
                 rgba(26, 26, 26, 0.5) 50%,
                 rgba(0, 0, 0, 0.8) 100%
             ),
-            url('Section-Hero.png'); /* Replace with your abstract/static image path */
+            url('images/Section-Hero.png'); 
             background-size: cover;
             background-position: center;
             display: flex;
@@ -503,8 +501,7 @@
             </ul>
             <div class="logo">
                 <div class="logo-icon">
-                    <!-- Replace 'path/to/your-logo.png' with the actual path to your PNG logo -->
-                    <img src="c:\Users\Admin\Documents\Leftovers Bots\Sandbox\Sevenfold\Sevenfold-ServerIcon-Logo-RGB-Gradient-Transparent.png" alt="Sevenfold Logo">
+                    <img src="images\Sevenfold-ServerIcon-Logo-RGB-Gradient-Transparent.png" alt="Sevenfold Logo">
                 </div>
             </div>
             <ul class="nav-links right">
@@ -574,11 +571,9 @@
     </footer>
 
     <script>
-        // Add click handlers for disabled nav links
         document.querySelectorAll('.nav-links a.disabled').forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
-                // Add a subtle shake effect
                 this.style.animation = 'shake 0.5s';
                 setTimeout(() => {
                     this.style.animation = '';
@@ -586,7 +581,6 @@
             });
         });
 
-        // Add shake animation
         const style = document.createElement('style');
         style.textContent = `
             @keyframes shake {
