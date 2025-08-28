@@ -415,6 +415,106 @@
             margin-bottom: 2rem;
         }
 
+        /* Dropdown Sections */
+        .dropdown-sections {
+            margin-top: 3rem;
+        }
+
+        .dropdown-item {
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            border-radius: 10px;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.6), rgba(42, 42, 42, 0.3));
+            backdrop-filter: blur(10px);
+        }
+
+        .dropdown-header {
+            padding: 1.5rem 2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid transparent;
+        }
+
+        .dropdown-header:hover {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(244, 224, 77, 0.05));
+            border-bottom-color: rgba(212, 175, 55, 0.2);
+        }
+
+        .dropdown-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .dropdown-icon {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--primary-gold);
+            border-radius: 50%;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .dropdown-icon::before,
+        .dropdown-icon::after {
+            content: '';
+            position: absolute;
+            background: var(--primary-gold);
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-icon::before {
+            width: 8px;
+            height: 2px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .dropdown-icon::after {
+            width: 2px;
+            height: 8px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .dropdown-item.active .dropdown-icon {
+            transform: rotate(45deg);
+        }
+
+        .dropdown-item.active .dropdown-icon::after {
+            opacity: 0;
+        }
+
+        .dropdown-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            background: linear-gradient(135deg, rgba(10, 10, 10, 0.8), rgba(26, 26, 26, 0.6));
+        }
+
+        .dropdown-item.active .dropdown-content {
+            max-height: 1000px;
+            padding: 2rem;
+        }
+
+        .dropdown-text {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+
+        .dropdown-text p {
+            margin-bottom: 1.5rem;
+        }
+
         .article-tags {
             display: flex;
             justify-content: center;
@@ -491,6 +591,20 @@
             .article-tags {
                 flex-wrap: wrap;
             }
+
+            .dropdown-header {
+                padding: 1rem 1.5rem;
+            }
+
+            .dropdown-item.active .dropdown-content {
+                padding: 1.5rem;
+            }
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateY(-2px) translateX(0); }
+            25% { transform: translateY(-2px) translateX(-3px); }
+            75% { transform: translateY(-2px) translateX(3px); }
         }
     </style>
 </head>
@@ -561,6 +675,81 @@
                 </div>
             </div>
 
+            <!-- Dropdown Sections -->
+            <div class="dropdown-sections">
+                <div class="dropdown-item">
+                    <div class="dropdown-header" onclick="toggleDropdown(this)">
+                        <h3 class="dropdown-title">The Reason</h3>
+                        <div class="dropdown-icon"></div>
+                    </div>
+                    <div class="dropdown-content">
+                        <div class="dropdown-text">
+                            <p>The decision to shut down Sevenfold wasn't made lightly. After months of careful consideration, we realized that the competitive World of Tanks community had evolved beyond what our platform could sustainably serve.</p>
+                            
+                            <p>User engagement had been declining steadily, and the resources required to maintain and improve our systems were becoming increasingly difficult to justify. The World of Tanks meta shifts and changes in the competitive scene meant our platform needed constant adaptation that we could no longer provide effectively.</p>
+                            
+                            <p>Additionally, technical debt accumulated over years of rapid development began impacting our ability to deliver the reliable, high-quality experience our community deserved. Rather than continue with a degraded service, we made the difficult choice to wind down operations while preserving the positive memories we created together.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dropdown-item">
+                    <div class="dropdown-header" onclick="toggleDropdown(this)">
+                        <h3 class="dropdown-title">The Vision</h3>
+                        <div class="dropdown-icon"></div>
+                    </div>
+                    <div class="dropdown-content">
+                        <div class="dropdown-text">
+                            <p>When we started Sevenfold, our vision was ambitious: create the definitive platform for competitive World of Tanks pickup games. We dreamed of a system that would seamlessly match players of similar skill levels, provide comprehensive statistics, and foster a thriving competitive community.</p>
+                            
+                            <p>We envisioned expanding beyond just matchmaking into a full ecosystem - tournament hosting, team formation tools, coaching platforms, and even integration with streaming services. The goal was to become the central hub where competitive World of Tanks players would gather, compete, and grow.</p>
+                            
+                            <p>Our roadmap included features like AI-powered match analysis, automated replay reviews, personalized training recommendations, and partnerships with major World of Tanks content creators. We wanted to bridge the gap between casual play and professional esports, creating pathways for talented players to advance their skills and recognition.</p>
+                            
+                            <p>While we achieved some of these goals and built meaningful connections within the community, the full vision remained just out of reach. The lessons learned and relationships formed during this journey, however, made every effort worthwhile.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dropdown-item">
+                    <div class="dropdown-header" onclick="toggleDropdown(this)">
+                        <h3 class="dropdown-title">Going Forward</h3>
+                        <div class="dropdown-icon"></div>
+                    </div>
+                    <div class="dropdown-content">
+                        <div class="dropdown-text">
+                            <p>While Sevenfold as a service has ended, the passion for competitive gaming and community building that drove this project continues. The team members are pursuing various paths - some continuing in game development, others exploring new technologies, and some taking well-deserved breaks.</p>
+                            
+                            <p>For our community members looking for competitive World of Tanks experiences, we recommend exploring other platforms that have emerged in the ecosystem. The competitive scene continues to evolve, and new solutions are being developed by passionate developers who share our original vision.</p>
+                            
+                            <p>We encourage everyone to stay connected with the friends and teammates you met through Sevenfold. The relationships formed through competitive gaming often outlast the platforms that brought us together. Consider joining Discord servers, forming your own teams, or participating in community-run tournaments.</p>
+                            
+                            <p>Finally, to aspiring developers and entrepreneurs in the gaming space: don't let our closure discourage you. Building communities and platforms is challenging but incredibly rewarding work. Learn from our experiences, both positive and negative, and continue pushing the boundaries of what's possible in competitive gaming.</p>
+                            
+                            <p>The gaming community needs passionate individuals willing to take risks and build something new. Whether it's in World of Tanks or any other competitive game, there are always opportunities to create meaningful experiences for players.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dropdown-item">
+                    <div class="dropdown-header" onclick="toggleDropdown(this)">
+                        <h3 class="dropdown-title">Community Impact</h3>
+                        <div class="dropdown-icon"></div>
+                    </div>
+                    <div class="dropdown-content">
+                        <div class="dropdown-text">
+                            <p>Throughout Sevenfold's operation, we facilitated thousands of competitive matches, bringing together players from across the globe. The friendships formed, skills developed, and memorable moments created represent the true success of our platform.</p>
+                            
+                            <p>Many players used Sevenfold as a stepping stone to join established clans, participate in league play, or even advance to professional World of Tanks competitions. Seeing community members grow and succeed in the broader competitive scene was one of our greatest rewards.</p>
+                            
+                            <p>The feedback, suggestions, and passionate engagement from our community shaped every aspect of Sevenfold's development. From feature requests to bug reports, tournament organization to content creation, the community was the heart of everything we built.</p>
+                            
+                            <p>We hope the competitive spirit, sportsmanship, and camaraderie fostered through Sevenfold continues in whatever platforms and communities you join next. The skills, friendships, and experiences gained here are yours to keep forever.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="article-tags">
                 <span class="tag">Announcement</span>
                 <span class="tag">World of Tanks</span>
@@ -574,6 +763,7 @@
     </footer>
 
     <script>
+        // Disabled nav links shake effect
         document.querySelectorAll('.nav-links a.disabled').forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -584,15 +774,34 @@
             });
         });
 
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes shake {
-                0%, 100% { transform: translateY(-2px) translateX(0); }
-                25% { transform: translateY(-2px) translateX(-3px); }
-                75% { transform: translateY(-2px) translateX(3px); }
+        // Dropdown functionality
+        function toggleDropdown(header) {
+            const dropdownItem = header.parentElement;
+            const isActive = dropdownItem.classList.contains('active');
+            
+            // Close all other dropdowns
+            document.querySelectorAll('.dropdown-item.active').forEach(item => {
+                if (item !== dropdownItem) {
+                    item.classList.remove('active');
+                }
+            });
+            
+            // Toggle current dropdown
+            if (isActive) {
+                dropdownItem.classList.remove('active');
+            } else {
+                dropdownItem.classList.add('active');
             }
-        `;
-        document.head.appendChild(style);
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.dropdown-item')) {
+                document.querySelectorAll('.dropdown-item.active').forEach(item => {
+                    item.classList.remove('active');
+                });
+            }
+        });
     </script>
 </body>
 </html>
